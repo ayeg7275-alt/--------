@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>시그니처 향기 컨설팅 </title>
+  <title>시그니처 향기 컨설팅 랜딩 - 샘플 키트 사전 예약</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -82,6 +82,14 @@
     .popup-backdrop.show{ display:flex; }
     .popup-close{ position: absolute; top: 15px; right: 20px; cursor: pointer; font-size: 24px; color: #999; }
     .popup-close:hover{ color: #333; }
+    
+    .report-backdrop{ position: fixed; inset:0; background: rgba(0,0,0,.7); display:none; align-items:center; justify-content:center; z-index: 300; }
+    .report-shell{ width: 90%; max-width: 800px; background: white; border-radius: 20px; overflow:hidden; box-shadow: 0 20px 40px rgba(0,0,0,.3); max-height: 90vh; overflow-y: auto; }
+    .report-backdrop.show{ display:flex; }
+    .report-close{ position: absolute; top: 15px; right: 20px; cursor: pointer; font-size: 24px; color: #999; z-index: 10; }
+    .report-close:hover{ color: #333; }
+    .report-grid{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .report-image{ width: 100%; height: 200px; object-fit: cover; border-radius: 12px; filter: blur(4px); }
   </style>
 </head>
 <body class="min-h-screen">
@@ -95,6 +103,8 @@
           <span class="text-lg md:text-xl text-orange-600 font-semibold">프리미엄 향기 솔루션 "사전예약 OPEN"</span>
         </h2>
         
+
+
         <div class="space-y-3 mb-6 text-left">
           <div class="flex items-start gap-3">
             <span class="text-xl">✨</span>
@@ -116,6 +126,36 @@
       </div>
     </div>
   </div>
+
+  <!-- 레포트 미리보기 팝업 -->
+  <div class="report-backdrop" id="reportPreview">
+    <div class="report-shell relative">
+      <div class="report-close" onclick="closeReportPreview()">&times;</div>
+      <div class="p-6 md:p-8">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4 text-center" style="color: var(--text);">
+          📊 향기 컨설팅 레포트 미리보기
+        </h2>
+        <p class="text-center mb-6 text-gray-600">실제 컨설팅에서 제공되는 레포트 샘플입니다</p>
+        
+        <div class="report-grid mb-6">
+          <img src="https://i.imgur.com/QNgA4yX.jpeg" alt="레포트 샘플 1" class="report-image" onerror="this.style.display='none';">
+          <img src="https://i.imgur.com/kTAobyG.jpeg" alt="레포트 샘플 2" class="report-image" onerror="this.style.display='none';">
+          <img src="https://i.imgur.com/PQHgUHC.jpeg" alt="레포트 샘플 3" class="report-image" onerror="this.style.display='none';">
+          <img src="https://i.imgur.com/G3gpDgR.jpeg" alt="레포트 샘플 4" class="report-image" onerror="this.style.display='none';">
+          <img src="https://i.imgur.com/RbYVFuF.jpeg" alt="레포트 샘플 5" class="report-image" onerror="this.style.display='none';">
+          <img src="https://i.imgur.com/E1Yqf41.jpeg" alt="레포트 샘플 6" class="report-image" onerror="this.style.display='none';">
+        </div>
+        
+        <div class="text-center">
+          <p class="text-sm text-gray-500 mb-4">* 실제 레포트는 고해상도로 제공됩니다</p>
+          <a href="https://forms.gle/wbR4GTb5Rz7Q4yZY6" target="_blank" class="inline-flex justify-center shine rounded-2xl bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-6 py-4 text-lg">
+            컨설팅 사전예약하고 상세 레포트 받기
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Sticky CTA -->
   <div class="sticky top-2 z-50">
     <div class="mx-auto max-w-5xl px-4">
@@ -141,7 +181,7 @@
         </div>
         <h1 class="hero-title font-extrabold" style="color: var(--text);">
           공간을 바꾸는<br>
-          시그니처 향기 컨설팅
+          시그니처 향기 제공 서비스
         </h1>
         <p class="hero-sub text-base md:text-lg" style="color: var(--muted);">
           단 한 번의 경험으로 완벽한 변화를,<br>프리미엄 향기 솔루션 출시 예정!
@@ -275,9 +315,9 @@
           <h2 class="text-2xl md:text-3xl font-bold">"우리 숙소에 맞는 향기 플랜 찾기"</h2>
           <p class="mt-1 text-sm" style="color: var(--muted);">3가지 옵션을 비교하고 선택하세요</p>
         </div>
-        <a href="https://open.kakao.com/o/sgsXgqQh" target="_blank" class="hidden md:inline-flex shine rounded-xl bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-5 py-3">
-          상담으로 추천 받기
-        </a>
+        <button onclick="showReportPreview()" class="hidden md:inline-flex items-center gap-2 shine rounded-xl bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold px-5 py-3 hover:from-purple-700 hover:to-purple-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
+          👀 레포트 미리보기
+        </button>
       </div>
 
       <div class="grid lg:grid-cols-3 gap-6">
@@ -494,6 +534,15 @@
     function closePopup() {
       document.getElementById('welcomePopup').classList.remove('show');
     }
+
+    // 레포트 미리보기 팝업 관리
+    function showReportPreview() {
+      document.getElementById('reportPreview').classList.add('show');
+    }
+    
+    function closeReportPreview() {
+      document.getElementById('reportPreview').classList.remove('show');
+    }
     
     // 페이지 로드 후 2초 뒤에 팝업 표시
     window.addEventListener('load', () => {
@@ -504,6 +553,13 @@
     document.getElementById('welcomePopup').addEventListener('click', (e) => {
       if (e.target === e.currentTarget) {
         closePopup();
+      }
+    });
+
+    // 레포트 팝업 배경 클릭 시 닫기
+    document.getElementById('reportPreview').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) {
+        closeReportPreview();
       }
     });
 
@@ -563,5 +619,5 @@
       });
     });
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97a5e69c627caa4a',t:'MTc1NzA3NzEzNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97a604d97645aa4a',t:'MTc1NzA3ODM3My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
