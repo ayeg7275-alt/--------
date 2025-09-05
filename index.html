@@ -76,19 +76,56 @@
     .field{ background: rgba(255,255,255,.8); border:1px solid rgba(212,165,116,.3); border-radius: 12px; width:100%; padding: 12px 14px; color: var(--text); outline: none; }
     .field:focus{ box-shadow: 0 0 0 3px rgba(212,165,116,.25); border-color: rgba(212,165,116,.5); }
     .close-x{ cursor:pointer; opacity:.9 }
+    
+    .popup-backdrop{ position: fixed; inset:0; background: rgba(0,0,0,.5); display:none; align-items:center; justify-content:center; z-index: 200; }
+    .popup-shell{ width: 90%; max-width: 480px; background: white; border-radius: 20px; overflow:hidden; box-shadow: 0 20px 40px rgba(0,0,0,.2); }
+    .popup-backdrop.show{ display:flex; }
+    .popup-close{ position: absolute; top: 15px; right: 20px; cursor: pointer; font-size: 24px; color: #999; }
+    .popup-close:hover{ color: #333; }
   </style>
 </head>
 <body class="min-h-screen">
+  <!-- 팝업창 -->
+  <div class="popup-backdrop" id="welcomePopup">
+    <div class="popup-shell relative">
+      <div class="popup-close" onclick="closePopup()">&times;</div>
+      <div class="p-6 md:p-8 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4 leading-tight" style="color: var(--text);">
+          "냄새나는 숙소,<br>손님은 다시 오지 않습니다."<br>
+          <span class="text-lg md:text-xl text-orange-600 font-semibold">프리미엄 향기 솔루션 "사전예약 OPEN"</span>
+        </h2>
+        
+        <div class="space-y-3 mb-6 text-left">
+          <div class="flex items-start gap-3">
+            <span class="text-xl">✨</span>
+            <span class="text-sm md:text-base">공간대여/숙박업을 위한 맞춤형 향기 컨설팅</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-xl">💡</span>
+            <span class="text-sm md:text-base">탈취 + 향기 + 정기 구독까지 한 번에</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-xl">💌</span>
+            <span class="text-sm md:text-base">지금 사전예약하면, 니치향 샘플 3종 무료</span>
+          </div>
+        </div>
+        
+        <a href="#" onclick="closePopup(); window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="w-full inline-flex justify-center shine rounded-2xl bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-6 py-4 text-base md:text-lg">
+          향기 컨설팅 사전예약하고 향기키트 받기
+        </a>
+      </div>
+    </div>
+  </div>
   <!-- Sticky CTA -->
   <div class="sticky top-2 z-50">
     <div class="mx-auto max-w-5xl px-4">
       <div class="glass rounded-2xl p-3 md:p-4 flex items-center justify-between gap-3">
         <div class="flex items-center gap-3">
           <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-orange-100 text-orange-600">💬</span>
-          <p class="text-sm md:text-base" style="color: var(--text);">고객이 기억하는 공간을 만들고 싶다면?</p>
+          <p class="text-sm md:text-base" style="color: var(--text);">사전 예약 시 니치향 향기키트 3종(10ml) 무료 증정!</p>
         </div>
         <a href="#action" class="shine rounded-xl bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-4 py-2 md:px-6 md:py-3 hover:opacity-95 transition">
-          무료 컨설팅 + 샘플 키트 사전예약
+          컨설팅 사전예약하기
         </a>
       </div>
     </div>
@@ -107,11 +144,11 @@
           <span class="bg-gradient-to-r from-[var(--accent-warm)] to-[var(--accent-soft)] bg-clip-text text-transparent">시그니처 향기 제공 서비스</span>
         </h1>
         <p class="hero-sub text-base md:text-lg" style="color: var(--muted);">
-          단 한 번의 경험으로 완벽한 변화를,<br>프리미엄 향기 솔루션 샘플 키트 출시 예정!
+          단 한 번의 경험으로 완벽한 변화를,<br>프리미엄 향기 솔루션 출시 예정!
         </p>
         <div class="flex flex-col gap-2">
           <a href="#action" class="shine rounded-2xl bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-6 py-4 text-lg text-center">
-            무료 컨설팅 + 샘플 키트 사전예약
+            컨설팅 사전예약하기
           </a>
           <span class="text-sm md:text-base text-center sm:text-left" style="color: var(--muted);">
             고객이 기억하는 공간을 만들고 싶다면?
@@ -158,8 +195,13 @@
 
     <!-- Social Proof (moved up) -->
     <section>
-      <h2 class="text-2xl md:text-3xl font-bold mb-6">🚀 4개월 만에 슈퍼호스트 달성한 비결</h2>
-      <div class="grid md:grid-cols-2 gap-5 justify-items-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6">💬 실제 숙박업자가 만든 향기 컨설팅</h2>
+      <p class="text-base md:text-lg mb-6" style="color: var(--muted);">
+        숙소 평점 관리와 후기를 위해 '향기 브랜딩'을 도입했습니다.<br><br>
+        결과는 단 4개월 만에 이렇게 달라졌습니다 👇
+      </p>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5 justify-items-center">
         <div class="soft rounded-2xl p-6 w-full max-w-md text-center">
           <div class="text-sm" style="color: var(--muted);">평점</div>
           <div class="text-4xl md:text-5xl font-extrabold big-num mt-1">⭐ 5.0</div>
@@ -169,6 +211,16 @@
           <div class="text-sm" style="color: var(--muted);">부정 리뷰</div>
           <div class="text-4xl md:text-5xl font-extrabold big-num mt-1 text-emerald-600">0건</div>
           <p class="text-sm mt-2" style="color: var(--muted);">냄새 관련 이슈 제로</p>
+        </div>
+        <div class="soft rounded-2xl p-6 w-full max-w-md text-center">
+          <div class="text-sm" style="color: var(--muted);">1달 만에</div>
+          <div class="text-4xl md:text-5xl font-extrabold big-num mt-1 text-blue-600">상위 5%</div>
+          <p class="text-sm mt-2" style="color: var(--muted);">달성</p>
+        </div>
+        <div class="soft rounded-2xl p-6 w-full max-w-md text-center">
+          <div class="text-sm" style="color: var(--muted);">4달 만에</div>
+          <div class="text-3xl md:text-4xl font-extrabold big-num mt-1 text-purple-600">슈퍼호스트</div>
+          <p class="text-sm mt-2" style="color: var(--muted);">달성</p>
         </div>
       </div>
 
@@ -211,7 +263,7 @@
           <h2 class="text-2xl md:text-3xl font-bold">"우리 숙소에 맞는 향기 플랜 찾기"</h2>
           <p class="mt-1 text-sm" style="color: var(--muted);">3가지 옵션을 비교하고 선택하세요</p>
         </div>
-        <a href="#action" class="hidden md:inline-flex shine rounded-xl bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-5 py-3">
+        <a href="https://open.kakao.com/o/sgsXgqQh" target="_blank" class="hidden md:inline-flex shine rounded-xl bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-5 py-3">
           상담으로 추천 받기
         </a>
       </div>
@@ -225,7 +277,7 @@
             <li>• 예산형 제품 추천</li>
             <li>• 셀프 관리 체크리스트</li>
           </ul>
-          <div class="mt-6"><a href="#action" class="rounded-lg border border-amber-300/40 px-4 py-2 text-sm hover:bg-amber-50 transition">상담으로 추천 받기</a></div>
+          <div class="mt-6"><a href="https://open.kakao.com/o/sgsXgqQh" target="_blank" class="rounded-lg border border-amber-300/40 px-4 py-2 text-sm hover:bg-amber-50 transition">상담으로 추천 받기</a></div>
         </div>
 
         <div class="glass rounded-2xl p-6 relative ring-2 ring-amber-400/40">
@@ -237,7 +289,7 @@
             <li>• 공간별 시나리오 설계</li>
             <li>• 유지관리 간소화</li>
           </ul>
-          <div class="mt-6"><a href="#action" class="rounded-lg bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-4 py-2 text-sm">상담으로 추천 받기</a></div>
+          <div class="mt-6"><a href="https://open.kakao.com/o/sgsXgqQh" target="_blank" class="rounded-lg bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-4 py-2 text-sm">상담으로 추천 받기</a></div>
         </div>
 
         <div class="glass rounded-2xl p-6">
@@ -248,12 +300,12 @@
             <li>• 향기 정기 배송 관리</li>
             <li>• 고도화 리포트 제공</li>
           </ul>
-          <div class="mt-6"><a href="#action" class="rounded-lg border border-amber-300/40 px-4 py-2 text-sm hover:bg-amber-50 transition">상담으로 추천 받기</a></div>
+          <div class="mt-6"><a href="https://open.kakao.com/o/sgsXgqQh" target="_blank" class="rounded-lg border border-amber-300/40 px-4 py-2 text-sm hover:bg-amber-50 transition">상담으로 추천 받기</a></div>
         </div>
       </div>
 
       <div class="mt-6 md:hidden">
-        <a href="#action" class="w-full inline-flex justify-center shine rounded-xl bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-5 py-3">상담으로 추천 받기</a>
+        <a href="https://open.kakao.com/o/sgsXgqQh" target="_blank" class="w-full inline-flex justify-center shine rounded-xl bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-5 py-3">상담으로 추천 받기</a>
       </div>
     </section>
 
@@ -263,14 +315,38 @@
     <section class="mt-10">
       <div class="soft rounded-3xl p-6 md:p-8">
         <h3 class="text-2xl md:text-3xl font-extrabold text-center">
-          직접 경험하고 판단하세요.<br class="block">프리미엄 향기 샘플 키트 무료 증정!
+          직접 경험하고 판단하세요.<br class="block">프리미엄 3종 향기키트(10ml) 무료증정.
         </h3>
-        <p class="text-base mt-4 text-center max-w-3xl mx-auto" style="color: var(--muted);">
-          저희의 솔루션이 얼마나 효과적인지 직접 경험해 보실 수 있도록 프리미엄 샘플 키트를 준비했습니다.
-        </p>
-        <p class="text-base mt-2 text-center max-w-3xl mx-auto" style="color: var(--muted);">
-          지금 바로 샘플 키트를 신청하고,<br>당신의 숙소가 달라지는 것을 직접 느껴보세요!
-        </p>
+        
+        <!-- 샘플 이미지 영역 -->
+        <div class="flex justify-center mt-6">
+          <div class="glass rounded-2xl p-6 max-w-md">
+            <div class="grid grid-cols-3 gap-4 mb-4">
+              <div class="text-center">
+                <div class="w-16 h-20 mx-auto bg-gradient-to-b from-amber-200 to-amber-400 rounded-lg flex items-center justify-center text-2xl">🌿</div>
+                <p class="text-xs mt-2" style="color: var(--muted);">우디</p>
+              </div>
+              <div class="text-center">
+                <div class="w-16 h-20 mx-auto bg-gradient-to-b from-rose-200 to-rose-400 rounded-lg flex items-center justify-center text-2xl">🌸</div>
+                <p class="text-xs mt-2" style="color: var(--muted);">플로럴</p>
+              </div>
+              <div class="text-center">
+                <div class="w-16 h-20 mx-auto bg-gradient-to-b from-blue-200 to-blue-400 rounded-lg flex items-center justify-center text-2xl">🌊</div>
+                <p class="text-xs mt-2" style="color: var(--muted);">프레시</p>
+              </div>
+            </div>
+            <div class="space-y-2 text-sm">
+              <div class="flex items-center gap-2">
+                <span class="text-green-600">✔</span>
+                <span>유명 니치 브랜드 프리미엄 향 3종</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-green-600">✔</span>
+                <span>공간별 맞춤 추천</span>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- 버튼 제거됨 -->
       </div>
     </section>
@@ -281,8 +357,9 @@
     <section id="action" class="relative">
       <h3 class="text-2xl md:text-3xl font-extrabold text-center mb-4 leading-tight">
         <span class="block">🚨단, 7일간! 🚨</span>
-        <span class="block">무료 컨설팅 + 샘플키트 사전예약</span>
+        <span class="block">컨설팅 사전예약 + 3종 향기키트</span>
         <span class="inline-block mt-2 px-3 py-1 rounded-full bg-rose-200/60 text-rose-700 font-bold">(선착순 100명 한정)</span>
+        <span class="block mt-2 text-sm" style="color: var(--muted);">재고 소진 시 조기 종료될 수 있습니다</span>
       </h3>
 
       <div class="soft rounded-3xl p-6 md:p-8 shadow-lg">
@@ -314,7 +391,7 @@
 
             <div class="mt-6">
               <a href="https://forms.gle/cmd944VXx37RHTfB7" target="_blank" class="w-full inline-flex justify-center shine rounded-2xl bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-6 py-4 text-lg">
-                무료 컨설팅 + 샘플 키트 사전예약
+                컨설팅 사전예약하기
               </a>
             </div>
 
@@ -328,20 +405,25 @@
             <div class="font-semibold text-center md:text-left">상담혜택</div>
             <div class="mt-3 space-y-3 text-sm">
               <div class="soft rounded-xl p-4">
-                <div class="font-semibold">1. 스탠다드 패키지 무료 제공 <span class="opacity-80">(5만원 상당)</span><br>+ 향기샘플키트 제공</div>
+                <div class="font-semibold">컨설팅 사전예약 시 프리미엄 향기키트 제공</div>
               </div>
               <div class="soft rounded-xl p-4">
-                <ul class="list-disc list-inside space-y-1" style="color: var(--muted);">
-                  <li>온라인 설문 기반 1:1 컨설팅</li>
-                  <li>맞춤형 향 계열 추천</li>
-                  <li>추천 제품 링크 제공</li>
-                </ul>
+                <div class="space-y-2">
+                  <div class="flex items-center gap-2">
+                    <span class="text-green-600">✔</span>
+                    <span style="color: var(--muted);">유명 니치 브랜드 프리미엄 향 3종(10ml)</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-green-600">✔</span>
+                    <span style="color: var(--muted);">공간별 맞춤 추천</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <p class="mt-8 text-center" style="color: var(--muted);">👉 간단한 설문조사 후 무료컨설팅 링크 제공</p>
+
       </div>
     </section>
 
@@ -354,13 +436,12 @@
       <div class="mt-6 grid md:grid-cols-2 gap-4">
         <details class="glass rounded-2xl p-5 group">
           <summary class="flex items-center justify-between cursor-pointer list-none">
-            <span class="font-semibold">Q1. 컨설팅은 정말 무료인가요?</span>
+            <span class="font-semibold">Q1. 컨설팅은 무료인가요?</span>
             <span class="transition group-open:rotate-180" style="color: var(--muted);">⌄</span>
           </summary>
           <div class="mt-3 text-sm space-y-2" style="color: var(--muted);">
-            <p>✅ 네, 1회 체험 컨설팅은 전액 무료입니다.</p>
-            <p>👉 베이직 패키지(냄새 진단 + 즉시 적용 가능한 제품 리스트) 내용으로 진행됩니다.</p>
-            <p>👉 부담 없이 프리미엄 컨설팅을 경험해보세요.</p>
+            <p>✅ 아니요, 유료 서비스입니다.</p>
+            <p>하지만 사전예약 고객께는 프리미엄 향기 샘플 3종을 무료로 제공합니다.</p>
           </div>
         </details>
 
@@ -404,7 +485,7 @@
             <span class="transition group-open:rotate-180" style="color: var(--muted);">⌄</span>
           </summary>
           <div class="mt-3 text-sm space-y-2" style="color: var(--muted);">
-            <p>샘플 키트는 숙소의 냄새를 즉시 잡을 수 있는 '탈취 스프레이'와 저희가 제안하는 시그니처 향을 경험할 수 있는 '디퓨저'로 활용될 수 있는 향 샘플 5종으로 구성되어 있습니다.</p>
+            <p>👉 샘플키트는 디퓨저로 활용할 수 있는 유명 브랜드 니치향 샘플 10ml 3종으로 구성되어 있습니다.</p>
           </div>
         </details>
       </div>
@@ -412,6 +493,27 @@
   </main>
 
   <script>
+    // 팝업창 관리
+    function showPopup() {
+      document.getElementById('welcomePopup').classList.add('show');
+    }
+    
+    function closePopup() {
+      document.getElementById('welcomePopup').classList.remove('show');
+    }
+    
+    // 페이지 로드 후 2초 뒤에 팝업 표시
+    window.addEventListener('load', () => {
+      setTimeout(showPopup, 2000);
+    });
+    
+    // 팝업 배경 클릭 시 닫기
+    document.getElementById('welcomePopup').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) {
+        closePopup();
+      }
+    });
+
     // 신청자 수 증가 (데모) - "보고 있습니다"로 변경
     const liveApplicantsEl = document.getElementById('liveApplicants');
     let applicants = 86;
@@ -472,5 +574,5 @@
       });
     });
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'979c43b6b6d2309d',t:'MTc1Njk3NjA5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97a457e21719aa4a',t:'MTc1NzA2MDgwMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
