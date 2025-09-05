@@ -1,571 +1,567 @@
-<!DOCTYPE html>
+<! DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>시그니처 향기 컨설팅</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#faf8f5;
-      --text:#4a4037;
-      --muted:#8b7355;
-      --accent-warm:#d4a574;
-      --accent-soft:#b8956a;
-      --cardBgTop: rgba(255,252,247,.95);
-      --cardBgBottom: rgba(248,245,240,.85);
-      --cardBorder: rgba(180,149,106,.15);
-      --cta-from:#c4956c;
-      --cta-to:#a67c52;
-      --timer-emph:#c17817;
-      --cloud-light: rgba(255,255,255,.6);
-      --cloud-medium: rgba(248,245,240,.8);
-    }
-    html,body{
-      background:
-        radial-gradient(1200px 800px at 80% -10%, rgba(212,165,116,.08), transparent 60%),
-        radial-gradient(900px 600px at 10% 10%, rgba(184,149,106,.06), transparent 60%),
-        radial-gradient(600px 400px at 50% 50%, rgba(255,252,247,.4), transparent 70%),
-        var(--bg);
-      color:var(--text);
-      font-family:"Pretendard", system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-    }
-    .glass{
-      background:linear-gradient(180deg, var(--cloud-light), rgba(255,252,247,.4)); 
-      border:1px solid rgba(212,165,116,.2); 
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 20px rgba(212,165,116,.08);
-    }
-    .soft{
-      background:linear-gradient(180deg, var(--cardBgTop), var(--cardBgBottom)); 
-      border:1px solid var(--cardBorder);
-      box-shadow: 0 2px 15px rgba(180,149,106,.1);
-    }
-    .rec-badge{
-      background: linear-gradient(90deg, rgba(212,165,116,.25), rgba(184,149,106,.25));
-      color: #8b7355;
-      border:1px solid rgba(212,165,116,.4);
-    }
-    .shine{position:relative; overflow:hidden}
-    .shine::after{content:""; position:absolute; top:-120%; left:-40%; width:40%; height:300%; transform: rotate(25deg); background: linear-gradient(90deg, transparent, rgba(255,255,255,.6), transparent); animation: shine 2.6s infinite;}
-    @keyframes shine { 0%{left:-60%} 60%{left:120%} 100%{left:120%} }
-    .big-num{ font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+<머리>
+ <메타 문자 집합="utf-8" />
+ <메타 이름="뷰포트" content="width=device-width, initial-scale=1" />
+ <title>시그니처 향기 컨설팅</title>
+ <스크립트 src="https://cdn.tailwindcss.com"></script>
+ <링크 rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <링크 href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+ <스타일>
+ :루트{
+ --bg:#faf8f5;
+ --텍스트:#4a4037;
+ --음소거:#8b7355;
+ --악센트-따뜻함:#d4a574;
+ --악센트-부드러움:#b8956a;
+ --cardBgTop: rgba(255,252,247,.95);
+ --cardBgBottom: rgba(248,245,240,.85);
+ --카드 테두리: rgba(180,149,106,.15);
+ --cta-from:#c4956c;
+ --cta-to:#a67c52;
+ --타이머 강조:#c17817;
+ --구름 빛: rgba(255,255,255,.6);
+ --구름 중간: rgba(248,245,240,.8);
+ }
+ html,본문{
+ 배경:
+ 방사형 그라데이션(80% -10%에서 1200px 800px, rgba(212,165,116,.08), 투명 60%),
+ 방사형 그라데이션(900px 600px 10% 10%, rgba(184,149,106,.06), 투명 60%),
+ 방사형 그라디언트(600px 400px at 50% 50%, rgba(255,252,247,.4), 투명 70%),
+ var(--bg);
+ 색상:var(--텍스트);
+ font-family:"Pretendard", system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Arial, "Apple SD Gothic Neo", "Malgun Gothic", 산세리프체;
+ }
+ .유리{
+ 배경:선형 그라디언트(180deg, var(--cloud-light), rgba(255,252,247,.4)); 
+ 테두리:1px 솔리드 RGBA(212,165,116,.2); 
+ 배경 필터: 흐림(10px);
+ 상자 그림자: 0 4px 20px rgba(212,165,116,.08);
+ }
+ .소프트{
+ 배경:선형 그라디언트(180deg, var(--cardBgTop), var(--cardBgBottom)); 
+ 테두리:1px 솔리드 var(--cardBorder);
+ 상자 그림자: 0 2px 15px rgba(180,149,106,.1);
+ }
+ .rec-배지{
+ 배경: 선형 그라데이션(90deg, rgba(212,165,116,.25), rgba(184,149,106,.25));
+ 색상: #8b7355;
+ 테두리:1px 솔리드 RGBA(212,165,116,.4);
+ }
+ .shine{위치:상대; 오버플로:숨김}
+ .shine::after{content:""; 위치:절대; 상단:-120%; 왼쪽:-40%; 너비: 40%; 높이: 300%; 변환: 회전(25도); 배경: 선형 그라디언트(90도, 투명, RGBA(255,255,255,.6), 투명); 애니메이션: 샤인 2.6초 무한;}
+ @keyframes 빛나는 { 0%{왼쪽:-60%} 60%{왼쪽:120%} 100%{왼쪽:120%} }
+ .big-num{ 글꼴 변형 숫자: 표 형식 숫자; 문자 간격: -0.02em; }
 
-    .hero-title{
-      font-size: 36px;
-      line-height: 1.12;
-      word-break: keep-all;
-      hyphens: auto;
-    }
-    @media (min-width: 1024px){
-      .hero-title{ font-size: 40px; }
-    }
-    @media (max-width: 640px){
-      .hero-title{ font-size: 24px; line-height: 1.2; }
-      .hero-sub{ font-size: 14px; line-height: 1.5; }
-    }
+.hero-title{
+ 글꼴 크기: 36px;
+ 줄 높이: 1.12;
+ 단어 분리: 모두 유지;
+ 하이픈: 자동;
+ }
+ @media (최소 너비: 1024px){
+ .hero-title{ 글꼴 크기: 40px; }
+ }
+ @media (최대 너비: 640px){
+ .hero-title{ 글꼴 크기: 24px; 줄 높이: 1.2; }
+ .hero-sub{ 글꼴 크기: 14px; 줄 높이: 1.5; }
+ }
 
-    .modal-backdrop{ position: fixed; inset:0; background: rgba(74,64,55,.4); display:none; align-items:center; justify-content:center; z-index: 100; }
-    .modal-shell{ width: 100%; max-width: 560px; border-radius: 20px; overflow:hidden; }
-    .modal-header{ background: linear-gradient(90deg, var(--cta-from), var(--cta-to)); color:white; padding:18px 22px; }
-    .modal-body{ background: #faf8f5; padding:20px; }
-    .modal-backdrop.show{ display:flex; }
-    .field{ background: rgba(255,255,255,.8); border:1px solid rgba(212,165,116,.3); border-radius: 12px; width:100%; padding: 12px 14px; color: var(--text); outline: none; }
-    .field:focus{ box-shadow: 0 0 0 3px rgba(212,165,116,.25); border-color: rgba(212,165,116,.5); }
-    .close-x{ cursor:pointer; opacity:.9 }
-    
-    .popup-backdrop{ position: fixed; inset:0; background: rgba(0,0,0,.5); display:none; align-items:center; justify-content:center; z-index: 200; }
-    .popup-shell{ width: 90%; max-width: 480px; background: white; border-radius: 20px; overflow:hidden; box-shadow: 0 20px 40px rgba(0,0,0,.2); }
-    .popup-backdrop.show{ display:flex; }
-    .popup-close{ position: absolute; top: 15px; right: 20px; cursor: pointer; font-size: 24px; color: #999; }
-    .popup-close:hover{ color: #333; }
-  </style>
-</head>
+.modal-backdrop{ 위치: 고정; 삽입:0; 배경: rgba(74,64,55,.4); 디스플레이:없음; 정렬 항목:중앙; 정렬 내용:중앙; z-인덱스: 100; }
+ .modal-shell{ 너비: 100%; 최대 너비: 560px; 테두리 반경: 20px; 오버플로:숨김; }
+ .modal-header{ 배경: linear-gradient(90deg, var(--cta-from), var(--cta-to)); 색상:흰색; 패딩:18px 22px; }
+ .modal-body{ 배경: #faf8f5; 패딩:20px; }
+ .modal-backdrop.show{ 디스플레이:플렉스; }
+ .field{ 배경: rgba(255,255,255,.8); 테두리:1px 단색 rgba(212,165,116,.3); 테두리 반경: 12px; 너비:100%; 패딩: 12px 14px; 색상: var(--text); 개요: 없음; }
+ .field:focus{ 상자 그림자: 0 0 0 3px rgba(212,165,116,.25); 테두리 색상: rgba(212,165,116,.5); }
+ .close-x{ 커서 : 포인터; 불투명도 : .9 }
+ 
+.popup-backdrop{ 위치: 고정; 삽입:0; 배경: rgba(0,0,0,.5); 디스플레이:없음; 정렬 항목s:센터; 정당화 내용:센터; Z-지수: 200; }
+ .popup-shell{ 너비: 90%; 최대 너비: 480px; 배경: 흰색; 테두리 반경: 20px; 오버플로:숨김; 상자 그림자: 0 20px 40px rgba(0,0,0,.2); }
+ .popup-backdrop.show{ 디스플레이:플렉스; }
+ .popup-close{ position: absolute; top: 15px; right: 20px; cursor: pointer; font-size: 24px; color: #999; }
+ .popup-close:hover{ 색상: #333; }
+ </스타일>
+</머리>
 <body class="min-h-screen">
-  <!-- 팝업창 -->
-  <div class="popup-backdrop" id="welcomePopup">
-    <div class="popup-shell relative">
-      <div class="popup-close" onclick="closePopup()">&times;</div>
-      <div class="p-6 md:p-8 text-center">
-        <h2 class="text-2xl md:text-3xl font-bold mb-4 leading-tight" style="color: var(--text);">
-          "냄새나는 숙소,<br>손님은 다시 오지 않습니다."<br>
-          <span class="text-lg md:text-xl text-orange-600 font-semibold">프리미엄 향기 솔루션 "사전예약 OPEN"</span>
-        </h2>
-        
-        <div class="space-y-3 mb-6 text-left">
-          <div class="flex items-start gap-3">
-            <span class="text-xl">✨</span>
-            <span class="text-sm md:text-base">공간대여/숙박업을 위한 맞춤형 향기 컨설팅</span>
-          </div>
-          <div class="flex items-start gap-3">
-            <span class="text-xl">💡</span>
-            <span class="text-sm md:text-base">탈취 + 향기 + 정기 구독까지 한 번에</span>
-          </div>
-          <div class="flex items-start gap-3">
-            <span class="text-xl">💌</span>
-            <span class="text-sm md:text-base">지금 사전예약하면, 니치향 샘플 3종 무료</span>
-          </div>
-        </div>
-        
-        <a href="#" onclick="closePopup(); window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="w-full inline-flex justify-center shine rounded-2xl bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-6 py-4 text-base md:text-lg">
-          향기 컨설팅 사전예약하고 향기키트 받기
-        </a>
-      </div>
-    </div>
-  </div>
-  <!-- Sticky CTA -->
-  <div class="sticky top-2 z-50">
-    <div class="mx-auto max-w-5xl px-4">
-      <div class="glass rounded-2xl p-3 md:p-4 flex items-center justify-between gap-3">
-        <div class="flex items-center gap-3">
-          <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-orange-100 text-orange-600">💬</span>
-          <p class="text-sm md:text-base" style="color: var(--text);">사전 예약 시 니치향 향기키트 3종(10ml) 무료 증정!</p>
-        </div>
-        <a href="#action" class="shine rounded-xl bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-4 py-2 md:px-6 md:py-3 hover:opacity-95 transition">
-          컨설팅 사전예약하기
-        </a>
-      </div>
-    </div>
-  </div>
+ <!-- 팝업창 -->
+ <div class="popup-backdrop" id="welcomePopup">
+ <div class="popup-shell relative">
+ <div 클래스="팝업 닫기" onclick="closePopup()">&times; </div>
+ <div class="p-6 md:p-8 텍스트 센터">
+ <h2 class="text-2xl md:text-3xl font-bold mb-4 leading-tight" style="color: var(--text);" >
+ "냄새나는 숙소,<br>손님은 다시 오지 않습니다." <br>
+ <span class="text-lg md:text-xl text-orange-600 font-semibold">프리미엄 향기 솔루션 "사전예약 OPEN"</span>
+ </h2>
+ 
+<div class="space-y-3 mb-6 text-left">
+ <div class="flex items-start gap-3">
+ <span class="text-xl">✨</span>
+ <span class="text-sm md:text-base">공간대여/숙박업을 위한 맞춤형 향기 컨설팅</span>
+ </div>
+ <div class="flex items-start gap-3">
+ <span class="text-xl">💡</span>
+ <span class="text-sm md:text-base">탈취 + 향기 + 정기 구독까지 한 번에</span>
+ </div>
+ <div class="flex items-start gap-3">
+ <span class="text-xl">💌</span>
+ <span class="text-sm md:text-base">지금 사전예약하면, 니치향 샘플 3종 무료</span>
+ </div>
+ </div>
+ 
+<a href="#" onclick="closePopup(); window.scrollTo({top: 0, 동작: '부드럽게'}); return false;" class="w-full inline-flex justify-center shine rounded-2xl bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-6 py-4 text-base md:text-lg">
+ 향기 컨설팅 사전예약하고 향기키트 받기
+ </a>
+ </div>
+ </div>
+ </div>
+ <!-- 고정 CTA -->
+ <div class="끈적끈적한 상단-2 z-50">
+ <div class="mx-auto max-w-5xl px-4">
+ <div class="유리 둥근 2XL P-3 MD:P-4 플렉스 항목-중앙 정렬-간격 사이-3">
+ <div class="flex items-center gap-3">
+ <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-orange-100 text-orange-600">💬</span>
+ <p class="text-sm md:text-base" style="color: var(--text);" >사전 예약 시 니치향 향기키트 3종(10ml) 무료 증정!</p>
+ </div>
+ <a href="#action" class="shine rounded-xl bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-4 py-2 md:px-6 md:py-3 hover:opacity-95 transition">
+ 컨설팅 사전예약하기
+ </a>
+ </div>
+ </div>
+ </div>
 
-  <!-- 메인 -->
-  <main class="mx-auto max-w-6xl px-4 md:px-6 lg:px-8 pt-10 md:pt-16 pb-28">
-    <!-- Hero -->
-    <section class="grid lg:grid-cols-2 gap-8 items-center">
-      <div class="space-y-6">
-        <div class="inline-flex items-center gap-2 text-xs font-medium px-3 py-1 rounded-full rec-badge">
-          향기로 만드는 공간 브랜딩
-        </div>
-        <h1 class="hero-title font-extrabold" style="color: var(--text);">
-          공간을 바꾸는<br>
-          시그니처 향기 컨설팅
-        </h1>
-        <p class="hero-sub text-base md:text-lg" style="color: var(--muted);">
-          단 한 번의 경험으로 완벽한 변화를,<br>프리미엄 향기 솔루션 출시 예정!
-        </p>
-      </div>
-      
-      <!-- 향기키트 이미지 섹션 -->
-      <div class="soft rounded-3xl p-6 md:p-8 flex flex-col items-center justify-center">
-        <div class="glass rounded-2xl p-4 w-full max-w-sm">
-          <img src="https://i.imgur.com/PSKXkuf.jpeg" alt="프리미엄 향기키트 3종" class="w-full h-64 object-cover rounded-xl" onerror="this.src=''; this.alt='이미지 로드 실패'; this.style.display='none';">
-        </div>
-        <p class="text-sm mt-3 text-center" style="color: var(--muted);">&lt;향기키트 3종 증정&gt;</p>
-      </div>
-    </section>
+<!-- 메인 -->
+ <main class="MX-Auto Max-W-6XL PX-4 MD:PX-6 LG:PX-8 PT-10 MD:PT-16 PB-28">
+ <!-- 영웅 -->
+ <section class="그리드 lg:그리드 배열-2 간격-8 항목 센터">
+ <div class="space-y-6">
+ <div class="inline-flex items-center gap-2 text-xs font-medium px-3 py-1 rounded-full rec-badge">
+ 향기로 만드는 공간 브랜딩
+ </div>
+ <h1 class="영웅 제목 글꼴 엑스트라볼드" style="색상: var(--text);" >
+ 공간을 바꾸는<br>
+ 시그니처 향기 제공 컨설팅
+ </h1>
+ <p class="영웅 서브 텍스트 기반 md:text-lg" style="색상: var(--음소거);" >
+ 단 한 번의 경험으로 완벽한 변화를,<br>프리미엄 향기 솔루션 출시 예정!
+ </p>
+ <div class="flex flex-col gap-2">
+ <a href="#action" class="shine rounded-2xl bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-6 py-4 text-lg text-center">
+ 컨설팅 사전예약하기
+ <;/ᅡ&gt;
+ &lt;span class="text-sm md:text-base text-center sm:text-left" style="color: var(--음소거);" &gt;
+ 고객이 기억하는 공간을 만들고 싶다면?
+ &lt;/스팬&gt;
+ &lt;/div&gt;
+ &lt;/div&gt;
+ 
+&lt;!-- 향기키트 이미지 섹션 --&gt;
+ &lt;div class="소프트 라운드-3xl p-6 md:p-8 flex flex-col 항목-center justify-center"&gt;
+ &lt;div class="유리 둥근-2XL P-4 W-전체 최대-W-SM"&gt;
+ &lt;img src="https://i.imgur.com/PSKXkuf.jpeg" alt="프리미엄 향기키트 3종" class="w-full h-64 object-cover rounded-xl" onerror="this.src=''; this.alt='이미지 로드 실패'; this.style.display='없음';" &gt;
+ &lt;/div&gt;
+ &lt;p 클래스="text-sm mt-3 text-center" style="color: var(--음소거);" &gt;< 향기키트 3종 증정> </p>
+ </div>
+ </섹션>
 
-    <!-- CTA 버튼과 서비스 특징 -->
-    <section class="mt-8">
-      <div class="flex flex-col gap-6">
-        <div class="flex flex-col gap-2">
-          <a href="#action" class="shine rounded-2xl bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-6 py-4 text-lg text-center">
-            컨설팅 사전예약하기
-          </a>
-          <span class="text-sm md:text-base text-center" style="color: var(--muted);">
-            고객이 기억하는 공간을 만들고 싶다면?
-          </span>
-        </div>
-        
-        <div class="soft rounded-3xl p-6 md:p-8 relative overflow-hidden">
-          <div class="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-orange-200/30 blur-3xl"></div>
-          <div class="absolute bottom-10 -left-10 h-40 w-40 rounded-full bg-amber-200/30 blur-3xl"></div>
-          <div class="grid grid-cols-2 gap-4">
-            <div class="glass rounded-2xl p-5"><div class="text-3xl">🌿</div><h3 class="mt-3 font-semibold">공간 분석</h3><p class="text-sm mt-1" style="color: var(--muted);">동선·체류시간·목적 전략</p></div>
-            <div class="glass rounded-2xl p-5"><div class="text-3xl">🛎️</div><h3 class="mt-3 font-semibold">첫인상 강화</h3><p class="text-sm mt-1" style="color: var(--muted);">체크인 순간 좋은 기억</p></div>
-            <div class="glass rounded-2xl p-5"><div class="text-3xl">✨</div><h3 class="mt-3 font-semibold">브랜드 일관성</h3><p class="text-sm mt-1" style="color: var(--muted);">색·음악·향 톤앤매너</p></div>
-            <div class="glass rounded-2xl p-5"><div class="text-3xl">📈</div><h3 class="mt-3 font-semibold">성과 지향</h3><p class="text-sm mt-1" style="color: var(--muted);">리뷰·재방문 확인</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- 서비스 특징 -->
+ <섹션 클래스="mt-8">
+ <div class="소프트 라운드 - 3xl p-6 MD : P-8 상대 오버플로 - 숨김">
+ <div class="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-orange-200/30 blur-3xl"></div>
+ <div class="절대 하단-10 -left-10 h-40 w-40 rounded-full bg-amber-200/30 blur-3xl"></div>
+ <div class="그리드 그리드 배열-2 간격-4">
+ <div class="유리 둥근 2xl p-5"><div class="text-3xl">🌿</div><h3 class="mt-3 font-semibold">공간 분석</h3><p class="text-sm mt-1" style="color: var(--muted);" >동선·체류시간·목적 전략</p></div>
+ <div class="유리 둥근 2xl p-5"><div class="text-3xl">🛎️</div><h3 class="mt-3 font-semibold">첫인상 강화</h3><p class="text-sm mt-1" style="color: var(--muted);" >체크인 순간 좋은 기억</p></div>
+ <div class="유리 rounded-2xl p-5"><div class="text-3xl">✨</div><h3 class="mt-3 font-semibold">브랜드 일관성</h3><p class="text-sm mt-1" style="color: var(--muted);" >색·음악·향 톤앤매너</p></div>
+ <div class="유리 rounded-2xl p-5"><div class="text-3xl">📈</div><h3 class="mt-3 font-semibold">성과 지향</h3><p class="text-sm mt-1" style="color: var(--음소거);" >리뷰·재방문 확인</p></div>
+ </div>
+ </div>
+ </섹션>
 
-    <div class="h-px my-14 bg-gradient-to-r from-transparent via-amber-300/30 to-transparent"></div>
+<div class="h-px my-14 bg-gradient-to-r from-transparent via-amber-300/30 to-transparent"></div>
 
-    <!-- Problem -->
-    <section>
-      <h2 class="text-2xl md:text-3xl font-bold mb-6">"냄새나는 숙소, 손님은 다시 오지 않습니다."</h2>
-      <div class="grid md:grid-cols-3 gap-5">
-        <div class="glass rounded-2xl p-6 text-center">
-          <div class="text-2xl mb-2">❌</div>
-          <h3 class="font-semibold mb-1">청소해도 꿉꿉한 냄새</h3>
-          <p class="text-sm" style="color: var(--muted);">섬유·배관·환기 잔향</p>
-        </div>
-        <div class="glass rounded-2xl p-6 text-center">
-          <div class="text-2xl mb-2">❌</div>
-          <h3 class="font-semibold mb-1">냄새 후기 때문에 평점 하락</h3>
-          <p class="text-sm" style="color: var(--muted);">부정 리뷰는 전환율 영향</p>
-        </div>
-        <div class="glass rounded-2xl p-6 text-center">
-          <div class="text-2xl mb-2">❌</div>
-          <h3 class="font-semibold mb-1">매번 디퓨저 교체의 번거로움</h3>
-          <p class="text-sm" style="color: var(--muted);">관리 피로로 일관성 저하</p>
-        </div>
-      </div>
-    </section>
+<!-- 문제 -- >
+ <섹션>
+ <h2 class="text-2xl md:text-3xl font-bold mb-6">"냄새나는 숙소, 손님은 다시 오지 않습니다." </h2>
+ <div class="그리드 md:grid-cols-3 gap-5">
+ <div class="유리 둥근 2XL P-6 텍스트 센터">
+ <div class="text-2xl mb-2">❌</div>
+ <h3 class="font-semibold mb-1">청소해도 꿉꿉한 냄새</h3>
+ <p class="text-sm" style="color: var(--음소거);" >섬유·배관·환기 잔향</p>
+ </div>
+ <div class="유리 둥근 2XL P-6 텍스트 센터">
+ <div class="text-2xl mb-2">❌</div>
+ <h3 class="font-semibold mb-1">냄새 후기 때문에 평점 하락</h3>
+ <p class="text-sm" style="color: var(--음소거);" >부정 리뷰는 전환율 영향</p>
+ </div>
+ <div class="유리 둥근 2XL P-6 텍스트 센터">
+ <div class="text-2xl mb-2">❌</div>
+ <h3 class="font-semibold mb-1">매번 디퓨저 교체의 번거로움<#/h3>
+ <p class="text-sm" style="color: var(--음소거);" >관리 피로로 일관성 저하</p>
+ </div>
+ </div>
+ </섹션>
 
-    <div class="h-px my-14 bg-gradient-to-r from-transparent via-amber-300/30 to-transparent"></div>
+<div class="h-px my-14 bg-gradient-to-r from-transparent via-amber-300/30 to-transparent"></div>
 
-    <!-- Social Proof (moved up) -->
-    <section>
-      <h2 class="text-2xl md:text-3xl font-bold mb-6">💬 실제 숙박업자가 만든 향기 컨설팅</h2>
-      <p class="text-base md:text-lg mb-6" style="color: var(--muted);">
-        숙소 평점 관리와 후기를 위해 '향기 브랜딩'을 도입했습니다.<br><br>
-        결과는 단 4개월 만에 이렇게 달라졌습니다 👇
-      </p>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5 justify-items-center">
-        <div class="soft rounded-2xl p-6 w-full max-w-md text-center">
-          <div class="text-sm" style="color: var(--muted);">평점</div>
-          <div class="text-4xl md:text-5xl font-extrabold big-num mt-1">⭐ 5.0</div>
-          <p class="text-sm mt-2" style="color: var(--muted);">유지</p>
-        </div>
-        <div class="soft rounded-2xl p-6 w-full max-w-md text-center">
-          <div class="text-sm" style="color: var(--muted);">부정 리뷰</div>
-          <div class="text-4xl md:text-5xl font-extrabold big-num mt-1 text-emerald-600">0건</div>
-          <p class="text-sm mt-2" style="color: var(--muted);">냄새 관련 이슈 제로</p>
-        </div>
-        <div class="soft rounded-2xl p-6 w-full max-w-md text-center">
-          <div class="text-sm" style="color: var(--muted);">1달 만에</div>
-          <div class="text-4xl md:text-5xl font-extrabold big-num mt-1 text-blue-600">상위 5%</div>
-          <p class="text-sm mt-2" style="color: var(--muted);">달성</p>
-        </div>
-        <div class="soft rounded-2xl p-6 w-full max-w-md text-center">
-          <div class="text-sm" style="color: var(--muted);">4달 만에</div>
-          <div class="text-3xl md:text-4xl font-extrabold big-num mt-1 text-purple-600">슈퍼호스트</div>
-          <p class="text-sm mt-2" style="color: var(--muted);">달성</p>
-        </div>
-      </div>
+<!-- 사회적 증거(위로 이동) -- >
+ <섹션>
+ <h2 class="text-2xl md:text-3xl font-bold mb-6"> 💬 실제 숙박업자가 만든 향기 컨설팅</h2>
+ <p 클래스="텍스트 기반 md:text-lg mb-6" style="색상: var(--음소거);" >
+ 숙소 평점 관리와 후기를 위해 '향기 브랜딩'을 도입했습니다.<br><br>
+ 결과는 단 4개월 만에 이렇게 달라졌습니다 👇
+ </p>
+ 
+<div class="그리드 md:grid-cols-2 lg:grid-cols-4 gap-5 justify-items-center">
+ <div class="소프트 라운드 - 2xl p-6 w- 전체 max - w-md 텍스트 센터">
+ <div class="text-sm" style="color: var(--음소거);" >평점</div>
+ <div class="text-4xl md:text-5xl font-extrabold big-num mt-1"> ⭐ 5.0</div>
+ < class="text-sm mt-2" style="color: var(--음소거);" >유지</p>
+ </div>
+ <div class="소프트 라운드 - 2xl p-6 w- 전체 max - w-md 텍스트 센터">
+ <div class="text-sm" style="color: var(--음소거);" >부정 리뷰</div>
+ <div class="text-4xl md:text-5xl font-extrabold big-num mt-1 text-emerald-600">0건</div>
+ < class="text-sm mt-2" style="color: var(--음소거);" >냄새 관련 이슈 제로</p>
+ </div>
+ <div class="소프트 라운드 - 2xl p-6 w- 전체 max - w-md 텍스트 센터">
+ <div class="text-sm" style="color: var(--음소거);" >1달 만에</div>
+ <div class="text-4xl md:text-5xl font-extrabold big-num mt-1 text-blue-600">상위 5%</div>
+ < class="text-sm mt-2" style="color: var(--음소거);" >달성</p>
+ </div>
+ <div class="소프트 라운드 - 2xl p-6 w- 전체 max - w-md 텍스트 센터">
+ <div class="text-sm" style="color: var(--음소거);" >4달 만에</div>
+ <div class="text-3xl md:text-4xl font-extrabold big-num mt-1 text-purple-600">슈퍼호스트</div>
+ < class="text-sm mt-2" style="color: var(--음소거);" >달성</p>
+ </div>
+ </div>
 
-      <div class="grid md:grid-cols-2 gap-5 mt-6">
-        <div class="glass rounded-2xl p-6"><div class="text-2xl">🗨️</div><p class="mt-3">"방에 들리는 음악도 안정되고, 좋은 향기가 가득했어요!"</p></div>
-        <div class="glass rounded-2xl p-6"><div class="text-2xl">🗨️</div><p class="mt-3">"인테리어도 아늑하고, 향도 좋고, 청결도 깔끔했습니다."</p></div>
-      </div>
-    </section>
+<div class="그리드 md:grid-cols-2 gap-5 mt-6">
+ <div class="glass rounded-2xl p-6"><div class="text-2xl">🗨️</div><p class="mt-3"</div><p class="mt-3"> <"방에 들리는 음악도 안정되고, 좋은 향기가 가득했어요!" </p></div>
+ <div class="glass rounded-2xl p-6"><div class="text-2xl">🗨️</div><p class="mt-3">"인테리어도 아늑하고, 향도 좋고, 청결도 깔끔했습니다." </p></div>
+ </div>
+ </섹션>
 
-    <div class="h-px my-14 bg-gradient-to-r from-transparent via-amber-300/30 to-transparent"></div>
+<div class="h-px my-14 bg-gradient-to-r from-transparent via-amber-300/30 to-transparent"></div>
 
-    <!-- USP -->
-    <section>
-      <h2 class="text-2xl md:text-3xl font-bold mb-6">"향기로, 숙소의 첫인상을 바꿉니다"</h2>
-      <div class="grid md:grid-cols-3 gap-5">
-        <div class="soft rounded-2xl p-6 text-center">
-          <div class="text-4xl">🧠</div>
-          <h3 class="font-semibold mt-3">맞춤형 향기 브랜딩 컨설팅</h3>
-          <p class="text-sm mt-2" style="color: var(--muted);">체계 분석으로 전략 수립</p>
-        </div>
-        <div class="soft rounded-2xl p-6 text-center">
-          <div class="text-4xl">🧴</div>
-          <h3 class="font-semibold mt-3">탈취 + 향기 2단계 솔루션</h3>
-          <p class="text-sm mt-2" style="color: var(--muted);">덮지 않고 근본 제거</p>
-        </div>
-        <div class="soft rounded-2xl p-6 text-center">
-          <div class="text-4xl">📦</div>
-          <h3 class="font-semibold mt-3">번거로움 제로, 정기 구독</h3>
-          <p class="text-sm mt-2" style="color: var(--muted);">자동 관리로 본업 집중</p>
-        </div>
-      </div>
-    </section>
+<!-- USP -- >
+ <섹션>
+ <h2 class="text-2xl md:text-3xl font-bold mb-6">"향기로, 숙소의 첫인상을 바꿉니다"</h2>
+ <div class="그리드 md:grid-cols-3 gap-5">
+ <div class="소프트 라운드 - 2xl p-6 텍스트 센터">
+ <div 클래스="text-4xl">🧠</div>
+ <h3 class="font-semibold mt-3">맞춤형 향기 브랜딩 컨설팅</h3>
+ < class="text-sm mt-2" style="color: var(--음소거);" >체계 분석으로 전략 수립</p>
+ </div>
+ <div class="소프트 라운드 - 2xl p-6 텍스트 센터">
+ <div 클래스="text-4xl">🧴</div>
+ <h3 class="font-semibold mt-3">탈취 + 향기 2단계 솔루션</h3>
+ < class="text-sm mt-2" style="color: var(--음소거);" >덮지 않고 근본 제거</p>
+ </div>
+ <div class="소프트 라운드 - 2xl p-6 텍스트 센터">
+ <div 클래스="text-4xl">📦</div>
+ <h3 class="font-semibold mt-3">번거로움 제로, 정기 구독</h3>
+ < class="text-sm mt-2" style="color: var(--음소거);" >자동 관리로 본업 집중</p>
+ </div>
+ </div>
+ </섹션>
 
-    <div class="h-px my-14 bg-gradient-to-r from-transparent via-amber-300/30 to-transparent"></div>
+<div class="h-px my-14 bg-gradient-to-r from-transparent via-amber-300/30 to-transparent"></div>
 
-    <!-- Packages -->
-    <section>
-      <div class="flex items-end justify-between gap-4 mb-6">
-        <div>
-          <h2 class="text-2xl md:text-3xl font-bold">"우리 숙소에 맞는 향기 플랜 찾기"</h2>
-          <p class="mt-1 text-sm" style="color: var(--muted);">3가지 옵션을 비교하고 선택하세요</p>
-        </div>
-        <a href="https://open.kakao.com/o/sgsXgqQh" target="_blank" class="hidden md:inline-flex shine rounded-xl bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-5 py-3">
-          상담으로 추천 받기
-        </a>
-      </div>
+<!-- 패키지 -- >
+ <섹션>
+ <div class="flex items-end justify-between gap-4 mb-6">
+ <div>
+ <h2 class="text-2xl md:text-3xl font-bold">"우리 숙소에 맞는 향기 플랜 찾기"</h2>
+ <p 클래스="mt-1 text-sm" style="색상: var(--음소거);" >3가지 옵션을 비교하고 선택하세요</p>
+ </div>
+ <a href="https://open.kakao.com/o/sgsXgqQh" target="_blank" class="hidden md:inline-flex shine rounded-xl bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-5 py-3">
+ 상담으로 추천 받기
+ </a>
+ </div>
 
-      <div class="grid lg:grid-cols-3 gap-6">
-        <div class="glass rounded-2xl p-6">
-          <div class="text-sm mb-2" style="color: var(--muted);">Standard</div>
-          <h3 class="text-lg font-semibold">가장 빠르고 합리적인 냄새 해결</h3>
-          <ul class="mt-4 space-y-2 text-sm" style="color: var(--muted);">
-            <li>• 기본 진단 + 즉시 적용 가이드</li>
-            <li>• 예산형 제품 추천</li>
-            <li>• 셀프 관리 체크리스트</li>
-          </ul>
-          <div class="mt-6"><a href="https://open.kakao.com/o/sgsXgqQh" target="_blank" class="rounded-lg border border-amber-300/40 px-4 py-2 text-sm hover:bg-amber-50 transition">상담으로 추천 받기</a></div>
-        </div>
+<div class="그리드 lg:그리드 콜스-3 간격-6">
+ <div class="유리 원형-2xl p-6">
+ <div class="text-sm mb-2" style="color: var(--음소거);" >표준</div>
+ <h3 class="text-lg font-semibold">가장 빠르고 합리적인 냄새 해결</h3>
+ <ul class="mt-4 space-y-2 text-sm" style="color: var(--음소거);" >
+ <li>• 기본 진단 + 즉시 적용 guide</li>
+ <li>• 예산형 제품 추천</li>
+ <li>• 셀프 관리 체크리스트</li>
+ </ul>
+ <div class="mt-6"><a href="https://open.kakao.com/o/sgsXgqQh" target="_blank" class="rounded-lg border border-amber-300/40 px-4 py-2 text-sm hover:bg-amber-50 transition">상담으로 추천 받기</a></div>
+ </div>
 
-        <div class="glass rounded-2xl p-6 relative ring-2 ring-amber-400/40">
-          <div class="absolute -top-3 right-4 text-xs px-3 py-1 rounded-full rec-badge">추천</div>
-          <div class="text-sm mb-2" style="color: var(--muted);">Deluxe</div>
-          <h3 class="text-lg font-semibold">우리 숙소만의 시그니처 향기</h3>
-          <ul class="mt-4 space-y-2 text-sm" style="color: var(--muted);">
-            <li>• 콘셉트 정의 + 향 톤앤매너</li>
-            <li>• 공간별 시나리오 설계</li>
-            <li>• 유지관리 간소화</li>
-          </ul>
-          <div class="mt-6"><a href="https://open.kakao.com/o/sgsXgqQh" target="_blank" class="rounded-lg bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-4 py-2 text-sm">상담으로 추천 받기</a></div>
-        </div>
+<div class="유리 원형-2xl p-6 상대 링-2 링-황색-400/40">
+ <div class="absolute -top-3 right-4 text-xs px-3 py-1 rounded-full rec-badge">추천</div>
+ <div class="text-sm mb-2" style="color: var(--음소거);" >디럭스</div>
+ <h3 class="text-lg font-semibold">우리 숙소만의 시그니처 향기</h3>
+ <ul class="mt-4 space-y-2 text-sm" style="color: var(--음소거);" >
+ <li>• 콘셉트 정의 + 향 톤앤매너</li>
+ <li>• 공간별 시나리오 설계</li>
+ <li>• 유지관리 간소화</li>
+ </ul>
+ <div class="mt-6"><a href="https://open.kakao.com/o/sgsXgqQh" target="_blank" class="rounded-lg bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-4 py-2 text-sm">상담으로 추천 받기</a></div>
+ </div>
 
-        <div class="glass rounded-2xl p-6">
-          <div class="text-sm mb-2" style="color: var(--muted);">Premium</div>
-          <h3 class="text-lg font-semibold">향기 브랜딩 풀케어</h3>
-          <ul class="mt-4 space-y-2 text-sm" style="color: var(--muted);">
-            <li>• 브랜드 경험 통합(음악·색·향)</li>
-            <li>• 향기 정기 배송 관리</li>
-            <li>• 고도화 리포트 제공</li>
-          </ul>
-          <div class="mt-6"><a href="https://open.kakao.com/o/sgsXgqQh" target="_blank" class="rounded-lg border border-amber-300/40 px-4 py-2 text-sm hover:bg-amber-50 transition">상담으로 추천 받기</a></div>
-        </div>
-      </div>
+<div class="유리 원형-2xl p-6">
+ <div class="text-sm mb-2" style="color: var(--음소거);" >프리미엄</div>
+ <h3 class="text-lg font-semibold">향기 브랜딩 풀케어</h3>
+ <ul class="mt-4 space-y-2 text-sm" style="color: var(--음소거);" >
+ <li>• 브랜드 경험 통합(음악·색·향)</li>
+ <li>• 향기 정기 배송 관리</li>
+ <li>• 고도화 리포트 제공</li>
+ </ul>
+ <div class="mt-6"><a href="https://open.kakao.com/o/sgsXgqQh" target="_blank" class="rounded-lg border border-amber-300/40 px-4 py-2 text-sm hover:bg-amber-50 transition">상담으로 추천 받기</a></div>
+ </div>
+ </div>
 
-      <div class="mt-6 md:hidden">
-        <a href="https://open.kakao.com/o/sgsXgqQh" target="_blank" class="w-full inline-flex justify-center shine rounded-xl bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-5 py-3">상담으로 추천 받기</a>
-      </div>
-    </section>
+<div class="mt-6 md:hidden">
+ <a href="https://open.kakao.com/o/sgsXgqQh" target="_blank" class="w-full inline-flex justify-center shine rounded-xl bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-5 py-3">상담으로 추천 받기</a>
+ </div>
+ </섹션>
 
-    <div class="h-px my-14 bg-gradient-to-r from-transparent via-amber-300/30 to-transparent"></div>
+<div class="h-px my-14 bg-gradient-to-r from-transparent via-amber-300/30 to-transparent"></div>
 
-    <!-- 샘플 키트 안내 섹션 -->
-    <section class="mt-10">
-      <div class="soft rounded-3xl p-6 md:p-8">
-        <h3 class="text-2xl md:text-3xl font-extrabold text-center">
-          직접 경험하고 판단하세요.<br class="block">프리미엄 3종 향기키트(10ml) 무료증정.
-        </h3>
-        
-        <!-- 이미지 영역 -->
-        <div class="flex justify-center mt-8">
-          <div class="glass rounded-2xl p-4 w-full max-w-sm">
-            <img src="https://i.imgur.com/PSKXkuf.jpeg" alt="프리미엄 향기키트 3종" class="w-full h-64 object-cover rounded-xl" onerror="this.src=''; this.alt='이미지 로드 실패'; this.style.display='none';">
-            
-            <!-- 설명 텍스트 - 이미지 아래 -->
-            <div class="text-center mt-4">
-              <div class="space-y-2 text-base">
-                <div><span class="text-green-600">✔</span> <span class="font-medium" style="color: var(--text);">유명 니치 브랜드 프리미엄 향 3종</span></div>
-                <div><span class="text-green-600">✔</span> <span class="font-medium" style="color: var(--text);">공간별 맞춤 추천</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- 샘플 키트 안내 섹션 -->
+ <섹션 클래스="mt-10">
+ <div class="소프트 라운드 - 3xl p-6 md : p-8">
+ <h3 클래스="text-2xl md:text-3xl font-extrabold text-center">
+ 직접 경험하고 판단하세요.<br class="block">프리미엄 3종 향기키트(10ml) 무료증정.
+ </h3>
+ 
+<!-- 이미지 영역 -->
+ <div class="flex justify-center mt-8">
+ <div class="유리 둥근-2XL P-4 W-전체 최대-W-SM">
+ <img src="https://i.imgur.com/PSKXkuf.jpeg" alt="프리미엄 향기키트 3종" class="w-full h-64 object-cover rounded-xl" onerror="this.src=''; this.alt='이미지 로드 실패'; this.style.display='없음';" >
+ 
+<!-- 설명 텍스트 - 이미지 아래 -->
+ <div class="text-center mt-4">
+ <div class="space-y-2 텍스트 기반">
+ <div><span class="text-green-600">✔</span> <span class="font-medium" style="color: var(--text);" >유명 니치 브랜드 프리미엄 향 3종</span></div>
+ <div><span class="text-green-600">✔</span> <span class="font-medium" style="color: var(--text);" >공간별 맞춤 추천</span></div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </섹션>
 
-    <div class="h-px my-14 bg-gradient-to-r from-transparent via-amber-300/30 to-transparent"></div>
+<div class="h-px my-14 bg-gradient-to-r from-transparent via-amber-300/30 to-transparent"></div>
 
-    <!-- Action -->
-    <section id="action" class="relative">
-      <h3 class="text-2xl md:text-3xl font-extrabold text-center mb-4 leading-tight">
-        <span class="block">🚨단, 7일간! 🚨</span>
-        <span class="block">컨설팅 사전예약 + 3종 향기키트</span>
-        <span class="inline-block mt-2 px-3 py-1 rounded-full bg-rose-200/60 text-rose-700 font-bold">(선착순 100명 한정)</span>
-        <span class="block mt-2 text-sm" style="color: var(--muted);">재고 소진 시 조기 종료될 수 있습니다</span>
-      </h3>
+<!-- 액션 -->
+ <섹션 id="action" class="상대">
+ <h3 class="text-2xl md:text-3xl font-extrabold text-center mb-4 leading-tight">
+ <span class="block">🚨단, 7일간! 🚨 </스팬>
+ <span class="block">컨설팅 사전예약 + 3종 향기키트</span>
+ <span class="inline-block mt-2 px-3 py-1 rounded-full bg-rose-200/60 text-rose-700 font-bold">(선착순 100명 한정)</span>
+ <span class="블록 mt-2 text-sm" style="color: var(--음소거);" >재고 소진 시 조기 종료될 수 있습니다</span>
+ </h3>
 
-      <div class="soft rounded-3xl p-6 md:p-8 shadow-lg">
-        <div class="grid md:grid-cols-2 gap-6 items-stretch">
-          <!-- Left: Timer -->
-          <div class="glass rounded-2xl p-5 md:p-6 timer-wrap">
-            <p class="text-center md:text-left">마감까지 남은 시간 ⏰</p>
-            <div class="mt-4 flex items-center justify-center md:justify-start gap-3 text-3xl md:text-4xl font-extrabold tracking-wider">
-              <div class="flex flex-col items-center">
-                <div class="timebox" id="tb-d">06</div>
-                <span class="mt-1 text-xs" style="color: var(--muted);">일</span>
-              </div>
-              <span style="color: var(--muted);" aria-hidden>:</span>
-              <div class="flex flex-col items-center">
-                <div class="timebox" id="tb-h">12</div>
-                <span class="mt-1 text-xs" style="color: var(--muted);">시간</span>
-              </div>
-              <span style="color: var(--muted);" aria-hidden>:</span>
-              <div class="flex flex-col items-center">
-                <div class="timebox" id="tb-m" style="color: var(--timer-emph);">35</div>
-                <span class="mt-1 text-xs" style="color: var(--muted);">분</span>
-              </div>
-              <span style="color: var(--muted);" aria-hidden>:</span>
-              <div class="flex flex-col items-center">
-                <div class="timebox" id="tb-s" style="color: var(--timer-emph);">21</div>
-                <span class="mt-1 text-xs" style="color: var(--muted);">초</span>
-              </div>
-            </div>
+<div class="소프트 라운드-3xl p-6 md:p-8 shadow-lg">
+ <div class="grid md:grid-cols-2 gap-6 items-stretch">
+ 왼쪽 <!--: 타이머 -->
+ <div class="유리 둥근 2XL P-5 MD:P-6 타이머 랩">
+ <p class="text-center md:text-left">마감까지 남은 시간 ⏰ </p>
+ <div class="mt-4 flex items-center justify-center md:justify-start gap-3 text-3xl md:text-4xl font-extrabold tracking-wider">
+ <div class="flex flex-col 항목 센터">
+ <div 클래스="timebox" id="tb-d">06</div>
+ <span class="mt-1 text-xs" style="color: var(--음소거);" >일</span>
+ </div>
+ <span style="color: var(--muted);" aria-hidden>:</span>
+ <div class="flex flex-col 항목 센터">
+ <div 클래스="timebox" id="tb-h">12</div>
+ <span class="mt-1 text-xs" style="color: var(--음소거);" >시간</span>
+ </div>
+ <span style="color: var(--muted);" aria-hidden>:</span>
+ <div class="flex flex-col 항목 센터">
+ <div class="timebox" id="tb-m" style="color: var(--timer-emph);" >35</분>
+ <span class="mt-1 text-xs" style="color: var(--음소거);" >분</span>
+ </div>
+ <span style="color: var(--muted);" aria-hidden>:</span>
+ <div class="flex flex-col 항목 센터">
+ <div class="timebox" id="tb-s" style="color: var(--timer-emph);" >21</구역>
+ <span class="mt-1 text-xs" style="color: var(--음소거);" >초</span>
+ </div>
+ </div>
 
-            <div class="mt-6">
-              <a href="https://forms.gle/wbR4GTb5Rz7Q4yZY6" target="_blank" class="w-full inline-flex justify-center shine rounded-2xl bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-6 py-4 text-lg">
-                컨설팅 사전예약하기
-              </a>
-            </div>
+<div 클래스="mt-6">
+ <a href="https://forms.gle/wbR4GTb5Rz7Q4yZY6" target="_blank" class="w-full inline-flex justify-center shine rounded-2xl bg-gradient-to-r from-[var(--cta-from)] to-[var(--cta-to)] text-white font-semibold px-6 py-4 text-lg">
+ 컨설팅 사전예약하기
+ </a>
+ </div>
 
-            <div class="mt-3 text-center text-xs" style="color: var(--muted);">
-              현재 <span id="liveApplicants" class="font-semibold" style="color: var(--text);">86</span>명이 보고 있습니다
-            </div>
-          </div>
+<div class="mt-3 text-center text-xs" style="color: var(--음소거);" >
+ 현재 <span id="liveApplicants" class="font-semibold" style="color: var(--text);" >86</span>명이 보고 있습니다
+ </div>
+ </div>
 
-          <!-- Right: 상담혜택 -->
-          <div class="glass rounded-2xl p-5 md:p-6">
-            <div class="font-semibold text-center md:text-left">상담혜택</div>
-            <div class="mt-3 space-y-3 text-sm">
-              <div class="soft rounded-xl p-4">
-                <div class="font-semibold">컨설팅 사전예약 시 프리미엄 향기키트 제공</div>
-              </div>
-              <div class="soft rounded-xl p-4">
-                <div class="space-y-2">
-                  <div class="flex items-center gap-2">
-                    <span class="text-green-600">✔</span>
-                    <span style="color: var(--muted);">유명 니치 브랜드 프리미엄 향 3종(10ml)</span>
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <span class="text-green-600">✔</span>
-                    <span style="color: var(--muted);">공간별 맞춤 추천</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- 오른쪽: 상담혜택 -->
+ <div class="유리 둥근 2XL P-5 MD:P-6">
+ <div class="font-semibold text-center md:text-left">상담혜택</div>
+ <div class="mt-3 space-y-3 text-sm">
+ <div class="소프트 라운드 XL P-4">
+ <div class="font-semibold">컨설팅 사전예약 시 프리미엄 향기키트 제공</div>
+ </div>
+ <div class="소프트 라운드 XL P-4">
+ <div class="space-y-2">
+ <div class="flex items-center gap-2">
+ <span class="text-green-600">✔</span>
+ <span style="color: var(--음소거);" >유명 니치 브랜드 프리미엄 향 3종(10ml)</span>
+ </div>
+ <div class="flex items-center 갭-2">
+ <span class="text-green-600">✔</span>
+ <span style="color: var(-muted);" >공간별 맞춤 추천</span>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </섹션>
 
-    <div class="h-px my-14 bg-gradient-to-r from-transparent via-amber-300/30 to-transparent"></div>
+<div class="h-px my-14 bg-gradient-to-r from-transparent via-amber-300/30 to-transparent"></div>
 
-    <!-- FAQ -->
-    <section id="faq" class="mt-4">
-      <h2 class="text-2xl md:text-3xl font-bold">자주 묻는 질문</h2>
-      <p class="mt-1 text-sm" style="color: var(--muted);">신청 전, 고객님들이 가장 많이 물어보셨어요</p>
-      <div class="mt-6 grid md:grid-cols-2 gap-4">
-        <details class="glass rounded-2xl p-5 group">
-          <summary class="flex items-center justify-between cursor-pointer list-none">
-            <span class="font-semibold">Q1. 컨설팅은 무료인가요?</span>
-            <span class="transition group-open:rotate-180" style="color: var(--muted);">⌄</span>
-          </summary>
-          <div class="mt-3 text-sm space-y-2" style="color: var(--muted);">
-            <p>✅ 아니요, 유료 서비스입니다.</p>
-            <p>하지만 사전예약 고객께는 프리미엄 향기 샘플 3종을 무료로 제공합니다.</p>
-          </div>
-        </details>
+<!-- FAQ -- >
+ <섹션 id="faq" class="mt-4">
+ <h2 class="text-2xl md:text-3xl font-bold">자주 묻는 질문</h2>
+ <p 클래스="mt-1 text-sm" style="색상: var(--음소거);" >신청 전, 고객님들이 가장 많이 물어보셨어요</p>
+ <div class="mt-6 그리드 md:grid-cols-2 gap-4">
+ <세부 정보 class="유리 원형-2XL P-5 그룹">
+ <summary class="flex items-center justify-between cursor-pointer list-none">
+ <span class="font-semibold">Q1입니다. 컨설팅은 무료인가요?</span>
+ <span class="transition group-open:rotate-180" style="color: var(--muted);" >⌄</스팬>
+ </요약>
+ <div class="mt-3 text-sm space-y-2" style="color: var(--음소거);" >
+ <p> ✅ 아니요, 유료 서비스입니다.</p>
+ <p>하지만 사전예약 고객께는 프리미엄 향기 샘플 3종을 무료로 제공합니다.</p>
+ </div>
+ </세부 정보>
 
-        <details class="glass rounded-2xl p-5 group">
-          <summary class="flex items-center justify-between cursor-pointer list-none">
-            <span class="font-semibold">Q2. 이 서비스를 받으면 정말 냄새 문제가 해결되나요?</span>
-            <span class="transition group-open:rotate-180" style="color: var(--muted);">⌄</span>
-          </summary>
-          <div class="mt-3 text-sm space-y-2" style="color: var(--muted);">
-            <p>✅ 단순히 향기로 덮는 것이 아니라 냄새의 원인을 분석해 근본적으로 해결해 드립니다.</p>
-            <p>👉 2단계 솔루션 ① 냄새 제거 ② 향기 브랜딩으로 확실하게 관리합니다.</p>
-          </div>
-        </details>
+<세부 정보 class="유리 원형-2XL P-5 그룹">
+ <summary class="flex items-center justify-between cursor-pointer list-none">
+ <span class="font-semibold">Q2입니다. 이 서비스를 받으면 정말 냄새 문제가 해결되나요?< 그/스팬>
+ <span class="transition group-open:rotate-180" style="color: var(--muted);" >⌄</스팬>
+ </요약>
+ <div class="mt-3 text-sm space-y-2" style="color: var(--음소거);" >
+ <p>✅ 단순히 향기로 덮는 것이 아니라 냄새의 원인을 분석해 근본적으로 해결해 드립니다.</p>
+ <p>👉 2단계 솔루션 ① 냄새 제거 ② 향기 브랜딩으로 확실하게 관리합니다.</p>
+ </div>
+ </세부 정보>
 
-        <details class="glass rounded-2xl p-5 group">
-          <summary class="flex items-center justify-between cursor-pointer list-none">
-            <span class="font-semibold">Q3. 방문 없이도 정확한 컨설팅이 가능한가요?</span>
-            <span class="transition group-open:rotate-180" style="color: var(--muted);">⌄</span>
-          </summary>
-          <div class="mt-3 text-sm space-y-2" style="color: var(--muted);">
-            <p>✅ 충분히 가능합니다. 질문지 + 사진/영상 자료 + 필요 시 통화로 공간을 분석합니다.</p>
-            <p>👉 오프라인 대비 효율적이고 합리적인 결과를 도출합니다.</p>
-          </div>
-        </details>
+<세부 정보 class="유리 원형-2XL P-5 그룹">
+ <summary class="flex items-center justify-between cursor-pointer list-none">
+ <span class="font-semibold">Q3입니다. 방문 없이도 정확한 컨설팅이 가능한가요?</span>
+ <span class="transition group-open:rotate-180" style="color: var(--muted);" >⌄</스팬>
+ </요약>
+ <div class="mt-3 text-sm space-y-2" style="color: var(--음소거);" >
+ <p> ✅ 충분히 가능합니다. 질문지 + 사진/영상 자료 + 필요 시 통화로 공간을 분석합니다.</p>
+ <p>👉 오프라인 대비 효율적이고 합리적인 결과를 도출합니다.</p>
+ </div>
+ </세부 정보>
 
-        <details class="glass rounded-2xl p-5 group">
-          <summary class="flex items-center justify-between cursor-pointer list-none">
-            <span class="font-semibold">Q4. 추천 제품은 꼭 구매해야 하나요? 비용은?</span>
-            <span class="transition group-open:rotate-180" style="color: var(--muted);">⌄</span>
-          </summary>
-          <div class="mt-3 text-sm space-y-2" style="color: var(--muted);">
-            <p>✅ 강요하지 않습니다. 예산에 맞춰 다양한 가격대를 추천합니다.</p>
-            <p>👉 합리적인 구매처 링크도 함께 안내드립니다.</p>
-          </div>
-        </details>
+<세부 정보 class="유리 원형-2XL P-5 그룹">
+ <summary class="flex items-center justify-between cursor-pointer list-none">
+ <span class="font-semibold">Q4입니다. 추천 제품은 꼭 구매해야 하나요? 비용은?</span>
+ <span class="transition group-open:rotate-180" style="color: var(--muted);" >⌄</스팬>
+ </요약>
+ <div class="mt-3 text-sm space-y-2" style="color: var(--음소거);" >
+ <p> ✅ 강요하지 않습니다. 예산에 맞춰 다양한 가격대를 추천합니다.</p>
+ <p> 👉 합리적인 구매처 링크링크적인 구매처 링크 함께 안내드립니다.</p>
+ </div>
+ </세부 정보>
 
-        <details class="glass rounded-2xl p-5 group md:col-span-2">
-          <summary class="flex items-center justify-between cursor-pointer list-none">
-            <span class="font-semibold">Q5. 샘플 키트는 어떻게 구성되어 있나요?</span>
-            <span class="transition group-open:rotate-180" style="color: var(--muted);">⌄</span>
-          </summary>
-          <div class="mt-3 text-sm space-y-2" style="color: var(--muted);">
-            <p>👉 샘플키트는 디퓨저로 활용할 수 있는 유명 브랜드 니치향 샘플 10ml 3종으로 구성되어 있습니다.</p>
-          </div>
-        </details>
-      </div>
-    </section>
-  </main>
+<details class="유리 원형-2xl p-5 그룹 md:col-span-2">
+ <summary class="flex items-center justify-between cursor-pointer list-none">
+ <span class="font-semibold">Q5입니다. 샘플 키트는 어떻게 구성되어 있나요?< he/span>
+ <span class="transition group-open:rotate-180" style="color: var(--muted);" >⌄</스팬>
+ </요약>
+ <div class="mt-3 text-sm space-y-2" style="color: var(--음소거);" >
+ <p> 👉 샘플키트는 디퓨저로 활용할 수 있는 유명 브랜드 니치향 샘플 10ml 3종으로 구성되어 있습니다.</p>
+ </div>
+ </세부 정보>
+ </div>
+ </섹션>
+ </메인>
 
-  <script>
-    // 팝업창 관리
-    function showPopup() {
-      document.getElementById('welcomePopup').classList.add('show');
-    }
-    
-    function closePopup() {
-      document.getElementById('welcomePopup').classList.remove('show');
-    }
-    
-    // 페이지 로드 후 2초 뒤에 팝업 표시
-    window.addEventListener('load', () => {
-      setTimeout(showPopup, 2000);
-    });
-    
-    // 팝업 배경 클릭 시 닫기
-    document.getElementById('welcomePopup').addEventListener('click', (e) => {
-      if (e.target === e.currentTarget) {
-        closePopup();
-      }
-    });
+<스크립트>
+ // 팝업창 관리
+ 함수 showPopup() {
+ document.getElementById('welcomePopup').classList.add('표시');
+ }
+ 
+함수 closePopup() {
+ document.getElementById('welcomePopup').classList.remove('쇼');
+ }
+ 
+// 페이지 로드 후 2초 뒤에 팝업 표시
+ window.addEventListener('로드', () => {
+ setTimeout(쇼팝업, 2000);
+ });
+ 
+// 팝업 배경 클릭 시 닫기
+ document.getElementById('welcomePopup').addEventListener('클릭', (e) => {
+ if (e.target === e.currentTarget) {
+ 닫기 팝업();
+ }
+ });
 
-    // 신청자 수 증가 (데모)
-    const liveApplicantsEl = document.getElementById('liveApplicants');
-    let applicants = 86;
-    if(liveApplicantsEl){
-      setInterval(()=>{
-        if(Math.random() > 0.6){
-          applicants += 1;
-          liveApplicantsEl.textContent = applicants.toLocaleString('ko-KR');
-          liveApplicantsEl.animate([{transform:'scale(1)'},{transform:'scale(1.06)'},{transform:'scale(1)'}],{duration:300,easing:'ease-out'});
-        }
-      }, 4000);
-    }
+// 신청자 수 증가 (데모)
+ const liveApplicantsEl = document.getElementById('liveApplicants');
+ 신청자 = 86;
+ if(liveApplicantsEl){
+ setInterval(()=>{
+ if(Math.random() > 0.6){
+ 지원자 += 1;
+ liveApplicantsEl.textContent = applicants.toLocaleString('ko-KR');
+ liveApplicantsEl.animate([{transform:'scale(1)'},{transform:'scale(1.06)'},{transform:'scale(1)'}],{duration:300,easing:'ease-out'});
+ }
+ }, 4000);
+ }
 
-    // 7일 주기 카운트다운
-    function pad(n){ return String(n).padStart(2,'0'); }
-    
-    const SEVEN_DAYS = 7 * 24 * 60 * 60 * 1000;
-    const now = new Date();
-    let targetDate = new Date(now.getTime() + SEVEN_DAYS);
+// 7일 주기 카운트다운
+ 함수 pad(n){ return String(n).padStart(2,'0'); }
+ 
+상수 SEVEN_DAYS = 7 * 24 * 60 * 60 * 1000;
+ const now = 새 날짜();
+ targetDate = new Date(now.getTime() + SEVEN_DAYS);
 
-    const tbD = document.getElementById('tb-d');
-    const tbH = document.getElementById('tb-h');
-    const tbM = document.getElementById('tb-m');
-    const tbS = document.getElementById('tb-s');
+const tbD = document.getElementById('tb-d');
+ const tbH = document.getElementById('tb-h');
+ const tbM = document.getElementById('tb-m');
+ const tbS = document.getElementById('tb-s');
 
-    function updateTimer(){
-      const now = new Date().getTime();
-      const left = Math.max(0, targetDate.getTime() - now);
-      
-      if (left === 0) {
-        targetDate = new Date(new Date().getTime() + SEVEN_DAYS);
-        return;
-      }
-      
-      const d = Math.floor(left / (24*60*60*1000));
-      const h = Math.floor((left % (24*60*60*1000)) / (60*60*1000));
-      const m = Math.floor((left % (60*60*1000)) / (60*1000));
-      const s = Math.floor((left % (60*1000)) / 1000);
+함수 updateTimer(){
+ const now = new Date().getTime();
+ const 왼쪽 = Math.max(0, targetDate.getTime() - 지금);
+ 
+if (왼쪽 === 0) {
+ targetDate = 새 날짜(새 날짜().getTime() + SEVEN_DAYS);
+ 돌아오다;
+ }
+ 
+const d = Math.floor(왼쪽 / (24*60*60*1000));
+ const h = Math.floor((왼쪽 % (24*60*60*1000)) / (60*60*1000));
+ const m = Math.floor((왼쪽 % (60*60*1000)) / (60*1000));
+ const s = Math.floor((왼쪽 % (60*1000)) / 1000);
 
-      tbD.textContent = pad(d);
-      tbH.textContent = pad(h);
-      tbM.textContent = pad(m);
-      tbS.textContent = pad(s);
-    }
-    updateTimer();
-    setInterval(updateTimer, 1000);
+tbD.textContent = 패드(d);
+ tbH.textContent = 패드(h);
+ tbM.textContent = 패드(중);
+ tbS.textContent = 패드;
+ }
+ updateTimer();
+ setInterval(업데이트 타이머, 1000);
 
-    // 부드러운 해시 스크롤
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', (e)=>{
-        const id = a.getAttribute('href').slice(1);
-        const el = document.getElementById(id);
-        if(el){ e.preventDefault(); el.scrollIntoView({ behavior:'smooth', block:'start' }); }
-      });
-    });
-  </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97a5c13bc3723175',t:'MTc1NzA3NTYwNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>
-
+// 부드러운 해시 스크롤
+ document.querySelectorAll('a[href^="#"]').forEach(a=>{
+ a.addEventListener('클릭', (e)=>{
+ const id = a.getAttribute('href').slice(1);
+ const el = document.getElementById(id);
+ if(el){ e.preventDefault(); el.scrollIntoView({ 동작:'부드럽게', 블록:'시작' }); }
+ });
+ });
+ </스크립트>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.문서; if(b){var d=b.createElement('스크립트'); d.innerHTML="window.__CF$cv$params={r:'97a5c70e47103175',t:'MTc1NzA3NTg0My4wMDAwMDA='}; var a=document.createElement('스크립트'); a.논스=''; a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js'; document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe'); a.높이=1; a.너비=1; a.style.position='절대'; a.style.top=0; a.스타일.왼쪽=0; a.style.border='없음'; a.style.visibility='숨김'; document.body.appendChild(a)입니다. if('loading'!==document.readyState)c(); 그렇지 않으면 if(window.addEventListener)document.addEventListener('DOMContentLoaded',c); else{var e=document.onreadystatechange||함수(){}; document.onreadystatechange=function(b){e(b);' loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})(); </스크립트></본문>
+</html> 
